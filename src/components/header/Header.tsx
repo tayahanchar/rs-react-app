@@ -16,7 +16,7 @@ class Header extends Component<IHeader> {
   render() {
     return (
       <header className="header">
-        <h1 className="title">Pokémon App</h1>
+        <img src="/pokeapi.png" alt="pokeapi logo" />
         <div className="content">
           <input
             className="input"

@@ -1,11 +1,12 @@
 import { Component } from 'react';
 import type { IPokemonsList } from '../../types/types';
 import Pokemon from '../pokemon/Pokemon';
+import './PokemonsList.css';
 
 class PokemonsList extends Component<IPokemonsList> {
   render() {
     return (
-      <div>
+      <div className="pokemons-list">
         {this.props.pokemonsList.map((pokemon, index) => (
           <Pokemon
             key={index}
