@@ -19,7 +19,7 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border-left: 10px solid rgba(11, 91, 91, 0.631);
+  border-left: 10px solid #2d14cc;
   border-bottom: 10px solid transparent;
   animation: rotation 0.5s linear infinite reverse;
 }
@@ -42,8 +42,8 @@
 
 .errorButton {
   align-self: end;
-  color: white;
-  background-color: #8d1e08;
+  color: #d6d6e3;
+  background-color: #180b6a;
   border: none;
   height: 40px;
   width: 150px;
@@ -53,7 +53,8 @@
 
 .errorButton:hover {
   transition: 0.5s;
-  background-color: #be280a;
+  background-color: #2d14cc;
+  cursor: pointer;
 }
 
 .error-text {
