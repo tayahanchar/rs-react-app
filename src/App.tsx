@@ -17,26 +17,30 @@ class App extends Component {
     isLoading: true,
   };
 
+  setPokemons = async () => {
+    this.setState({ isLoading: true });
+    try {
+      const pokemons = await fetchData('https://pokeapi.co/api/v2/pokemon');
+      const pokemonsWithDescription = await fetchPokemons(pokemons.results);
+
+      this.setState({
+        pokemons: pokemonsWithDescription,
+        isError: false,
+        isLoading: false,
+      });
+    } catch (error) {
+      console.log(error);
+      this.setState({ isError: true, isLoading: false });
+    }
+  };
+
   async componentDidMount() {
     const searchStr = localStorage.getItem('searchStr');
 
     if (searchStr) {
       this.handleSearch(searchStr);
     } else {
-      this.setState({ isLoading: true });
-      try {
-        const pokemons = await fetchData('https://pokeapi.co/api/v2/pokemon');
-        const pokemonsWithDescription = await fetchPokemons(pokemons.results);
-
-        this.setState({
-          pokemons: pokemonsWithDescription,
-          isError: false,
-          isLoading: false,
-        });
-      } catch (error) {
-        console.log(error);
-        this.setState({ isError: true, isLoading: false });
-      }
+      this.setPokemons();
     }
   }
 
@@ -47,20 +51,7 @@ class App extends Component {
 
     try {
       if (str.trim().length === 0) {
-        this.setState({ isLoading: true });
-        try {
-          const pokemons = await fetchData('https://pokeapi.co/api/v2/pokemon');
-          const pokemonsWithDescription = await fetchPokemons(pokemons.results);
-
-          this.setState({
-            pokemons: pokemonsWithDescription,
-            isError: false,
-            isLoading: false,
-          });
-        } catch (error) {
-          console.log(error);
-          this.setState({ isError: true, isLoading: false });
-        }
+        this.setPokemons();
       }
       const result = await fetchData(
         `https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0`
