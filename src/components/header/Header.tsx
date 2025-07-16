@@ -16,7 +16,7 @@ class Header extends Component<IHeader> {
   render() {
     return (
       <header className="header">
-        <img src="/pokeapi.png" alt="pokeapi logo" />
+        <img src="./pokeapi.png" alt="pokeapi logo" />
         <div className="content">
           <input
             className="input"
