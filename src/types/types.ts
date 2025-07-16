@@ -1,5 +1,3 @@
-import type { ReactNode } from 'react';
-
 export interface IPokemonWithoutDescr {
   name: string;
   url: string;
@@ -27,14 +25,6 @@ export interface IMain {
 
 export interface IHeader {
   handleSearch: (str: string) => void;
-}
-
-export interface IErrorBoundaryProps {
-  children: ReactNode;
-}
-
-export interface IErrorBoundaryState {
-  hasError: boolean;
 }
 
 export interface IFlavorTextEntries {

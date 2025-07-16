@@ -1,20 +1,20 @@
-import { Component } from 'react';
-import type {
-  IErrorBoundaryProps,
-  IErrorBoundaryState,
-} from '../../types/types';
+import { Component, type ReactNode } from 'react';
 import './ErrorBoundary.css';
 
-class ErrorBoundary extends Component<
-  IErrorBoundaryProps,
-  IErrorBoundaryState
-> {
-  constructor(props: IErrorBoundaryProps) {
-    super(props);
-    this.state = { hasError: false };
-  }
+interface Props {
+  children: ReactNode;
+}
 
-  static getDerivedStateFromError(): IErrorBoundaryState {
+interface State {
+  hasError: boolean;
+}
+
+class ErrorBoundary extends Component<Props, State> {
+  state: State = {
+    hasError: false,
+  };
+
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
 
