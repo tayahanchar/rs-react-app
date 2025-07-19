@@ -1,0 +1,15 @@
+.pokemon {
+  display: flex;
+  gap: 30px;
+}
+
+.pokemon-name {
+  width: 100px;
+  padding-left: 5px;
+  border-left: 1px solid rgba(230, 197, 12, 0.943);
+  font-weight: 700;
+}
+
+.pokemon-description {
+  width: 800px;
+}
